@@ -38,7 +38,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dev.jakapw.shoppinglist.data.Product
@@ -47,7 +46,7 @@ import dev.jakapw.shoppinglist.viewmodel.ProductViewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-    private val productViewModel: ProductViewModel by viewModels()
+    private val productViewModel: ProductViewModel by viewModels() { ProductViewModel.factory }
     private lateinit var productList: List<Product>
 
     override fun onCreate(savedInstanceState: Bundle?) {
